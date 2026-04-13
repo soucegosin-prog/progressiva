@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Progressiva em Gel | Pague na Entrega</title>
+  <meta name="description" content="Alise seu cabelo agora com progressiva em gel. Sem formol, brilho e maciez, com pagamento na entrega." />
+  <style>
+    :root{
+      --bg:#f4f5f1;
+      --surface:#ffffff;
+      --text:#101010;
+      --muted:#606060;
+      --line:rgba(0,0,0,.07);
+      --green:#44ef4b;
+      --green-2:#22b83b;
+      --dark:#0a120e;
+      --dark-2:#121a16;
+      --shadow:0 20px 60px rgba(0,0,0,.12);
+      --radius:30px;
+      --container:min(1120px, calc(100vw - 24px));
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(68,239,75,.06), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(68,239,75,.05), transparent 25%),
+        var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      overflow-x:hidden;
+    }
+
+    img, video{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+
+    .container{
+      width:var(--container);
+      margin:0 auto;
+    }
+
+    .section{padding:20px 0}
+    .section-lg{padding:36px 0}
+
+    .card{
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:80;
+      background:rgba(244,245,241,.88);
+      backdrop-filter:blur(14px) saturate(160%);
+      border-bottom:1px solid rgba(0,0,0,.05);
+    }
+
+    .topbar-inner{
+      width:var(--container);
+      margin:0 auto;
+      min-height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      font-weight:950;
+      font-size:1.2rem;
+      letter-spacing:-.03em;
+      min-width:0;
+    }
+
+    .top-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:52px;
+      padding:12px 24px;
+      border-radius:999px;
+      background:linear-gradient(135deg, var(--green), var(--green-2));
+      color:#08210d;
+      font-weight:950;
+      font-size:1rem;
+      box-shadow:0 18px 30px rgba(68,239,75,.22);
+      white-space:nowrap;
+    }
+
+    .hero{
+      padding:16px 0 10px;
+    }
+
+    .hero-wrap{
+      position:relative;
+      overflow:hidden;
+      border-radius:34px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.90), rgba(255,255,255,.97)),
+        url("images/progressiva1.png") center/cover no-repeat;
+      border:1px solid rgba(0,0,0,.05);
+      box-shadow:0 28px 70px rgba(0,0,0,.10);
+      padding:18px;
+      isolation:isolate;
+    }
+
+    .hero-wrap::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.94)),
+        radial-gradient(circle at 86% 14%, rgba(68,239,75,.14), transparent 20%),
+        radial-gradient(circle at 10% 78%, rgba(68,239,75,.08), transparent 22%);
+      pointer-events:none;
+      z-index:0;
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:1;
+      max-width:860px;
+      margin:0 auto;
+      display:grid;
+      gap:18px;
+    }
+
+    .hero-video-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:30px;
+      background:#000;
+      box-shadow:0 24px 60px rgba(0,0,0,.18);
+      aspect-ratio:9/16;
+      width:min(440px, 100%);
+      margin:0 auto;
+    }
+
+    .hero-video-card video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      background:#000;
+    }
+
+    .video-overlay{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+      padding:18px;
+      background:linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.18));
+    }
+
+    .video-badge{
+      pointer-events:auto;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:14px 18px;
+      border-radius:999px;
+      background:rgba(10,22,15,.90);
+      color:#fff;
+      border:1px solid rgba(68,239,75,.26);
+      box-shadow:0 18px 34px rgba(0,0,0,.22);
+      font-weight:900;
+      text-align:center;
+      line-height:1.2;
+    }
+
+    .video-badge .dot{
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 0 5px rgba(68,239,75,.12);
+      flex:0 0 12px;
+    }
+
+    .hero-copy{
+      display:grid;
+      gap:14px;
+      text-align:center;
+    }
+
+    .hero h1{
+      margin:0;
+      font-size:clamp(2rem, 6vw, 4.3rem);
+      line-height:.94;
+      letter-spacing:-.06em;
+      font-weight:950;
+      text-transform:uppercase;
+    }
+
+    .hero h1 .accent{
+      color:var(--green-2);
+    }
+
+    .hero-sub{
+      margin:0 auto;
+      font-size:clamp(1rem, 1.8vw, 1.2rem);
+      line-height:1.6;
+      color:#2d2d2d;
+      font-weight:650;
+      max-width:62ch;
+    }
+
+    .hero-points{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .mini-chip{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-height:52px;
+      padding:12px 18px;
+      border-radius:999px;
+      background:rgba(255,255,255,.90);
+      border:1px solid rgba(0,0,0,.06);
+      box-shadow:0 10px 26px rgba(0,0,0,.05);
+      font-weight:850;
+      font-size:1rem;
+    }
+
+    .mini-chip .mini-dot{
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 0 5px rgba(68,239,75,.14);
+      flex:0 0 12px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      min-height:58px;
+      padding:14px 24px;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:950;
+      letter-spacing:-.01em;
+      border:none;
+      cursor:pointer;
+      text-align:center;
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+
+    .btn:hover{transform:translateY(-1px)}
+
+    .btn-primary{
+      background:linear-gradient(135deg, var(--green), var(--green-2));
+      color:#08210d;
+      box-shadow:0 18px 32px rgba(68,239,75,.24);
+    }
+
+    .btn-secondary{
+      background:linear-gradient(135deg, #1a231f, #0d1411);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.06);
+      box-shadow:0 18px 30px rgba(0,0,0,.16);
+    }
+
+    .stat-highlight{
+      position:relative;
+      overflow:hidden;
+      padding:18px;
+      border-radius:32px;
+      background:
+        radial-gradient(circle at 85% 18%, rgba(68,239,75,.16), transparent 20%),
+        linear-gradient(180deg, #0d1511, #08100d);
+      color:#fff;
+      box-shadow:0 28px 70px rgba(0,0,0,.18);
+    }
+
+    .stat-grid{
+      display:grid;
+      grid-template-columns:.8fr 1.2fr;
+      gap:18px;
+      align-items:center;
+    }
+
+    .stat-block{
+      display:grid;
+      gap:8px;
+      align-content:start;
+    }
+
+    .stat-block strong{
+      font-size:clamp(2.5rem, 6vw, 4.5rem);
+      line-height:.88;
+      color:var(--green);
+      font-weight:950;
+      letter-spacing:-.06em;
+    }
+
+    .stat-block span{
+      font-size:1rem;
+      text-transform:uppercase;
+      letter-spacing:.05em;
+      color:#d4dbd6;
+      font-weight:900;
+    }
+
+    .stat-card{
+      display:grid;
+      grid-template-columns:170px 1fr;
+      gap:16px;
+      align-items:center;
+      padding:16px;
+      border-radius:26px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.07);
+      backdrop-filter:blur(10px);
+    }
+
+    .stat-image{
+      min-height:220px;
+      border-radius:24px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      overflow:hidden;
+      padding:12px;
+    }
+
+    .stat-image img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      object-position:center;
+      filter:drop-shadow(0 20px 28px rgba(0,0,0,.30));
+    }
+
+    .stat-copy p{
+      margin:0 0 12px;
+      color:#d4dbd6;
+      line-height:1.6;
+      font-size:1.02rem;
+      font-weight:650;
+    }
+
+    .stat-price{
+      display:grid;
+      gap:4px;
+    }
+
+    .stat-price .old{
+      color:#95a19a;
+      text-decoration:line-through;
+      font-size:1rem;
+      font-weight:700;
+    }
+
+    .stat-price .new{
+      color:var(--green);
+      font-size:clamp(2rem, 4vw, 3rem);
+      font-weight:950;
+      line-height:.95;
+      letter-spacing:-.05em;
+    }
+
+    .stat-price .small{
+      color:#dce2de;
+      font-size:1rem;
+      font-weight:750;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:18px;
+    }
+
+    .section-head h2{
+      margin:0;
+      font-size:clamp(1.7rem, 3vw, 2.8rem);
+      line-height:1;
+      letter-spacing:-.05em;
+      font-weight:950;
+      text-transform:uppercase;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.6;
+      font-weight:650;
+      max-width:62ch;
+    }
+
+    .pricing-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:18px;
+    }
+
+    .pricing-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  padding:18px;
+  border-radius:30px;
+  background:linear-gradient(180deg, #fff, #fbfbfb);
+  border:1px solid rgba(0,0,0,.06);
+  box-shadow:var(--shadow);
+  overflow:visible;
+}
+    }
+
+    .pricing-card.featured{
+      background:
+        radial-gradient(circle at top right, rgba(68,239,75,.12), transparent 34%),
+        linear-gradient(180deg, #fff, #f7fff4);
+      border-color:rgba(68,239,75,.34);
+      box-shadow:0 24px 60px rgba(36,187,62,.16);
+      transform:translateY(-4px);
+    }
+
+    .pricing-ribbon{
+  position:absolute;
+  top:14px;
+  right:14px;
+  z-index:20;
+  padding:10px 14px;
+  border-radius:999px;
+  background:#0f1713;
+  color:#fff;
+  font-size:.82rem;
+  font-weight:900;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  border:1px solid rgba(68,239,75,.24);
+  box-shadow:0 10px 24px rgba(0,0,0,.18);
+    }
+
+    .pricing-image{
+  min-height:220px;
+  border-radius:24px;
+  background:transparent;
+  padding:10px;
+  display:grid;
+  place-items:center;
+  overflow:visible;
+    }
+
+    .pricing-image img{
+  width:auto;
+  height:auto;
+  max-width:100%;
+  max-height:260px;
+  object-fit:contain;
+  object-position:center;
+  display:block;
+  filter:drop-shadow(0 18px 26px rgba(0,0,0,.12));
+    }
+
+    .pricing-copy h3{
+      margin:0 0 6px;
+      font-size:1.45rem;
+      line-height:1;
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:-.03em;
+    }
+
+    .pricing-ml{
+      margin:0 0 8px;
+      color:var(--green-2);
+      font-weight:950;
+      font-size:1.15rem;
+      text-transform:uppercase;
+    }
+
+    .pricing-copy p{
+      margin:0;
+      color:#444;
+      line-height:1.58;
+      font-weight:650;
+      font-size:.98rem;
+    }
+
+    .pricing-list{
+      display:grid;
+      gap:10px;
+    }
+
+    .pricing-item{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      font-size:.97rem;
+      line-height:1.5;
+      font-weight:800;
+      color:#202020;
+    }
+
+    .pricing-item .check{
+      width:22px;
+      height:22px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:rgba(68,239,75,.14);
+      color:#0f7a21;
+      flex:0 0 22px;
+      margin-top:1px;
+      font-size:.85rem;
+    }
+
+    .price-block{
+      margin-top:auto;
+      display:grid;
+      gap:4px;
+    }
+
+    .price-old{
+      color:#a08f8f;
+      text-decoration:line-through;
+      font-size:1rem;
+      font-weight:700;
+    }
+
+    .price-main{
+      color:#1dc136;
+      font-size:clamp(2rem, 4vw, 2.9rem);
+      line-height:.94;
+      font-weight:950;
+      letter-spacing:-.05em;
+    }
+
+    .price-cash{
+      color:#2b8c3b;
+      font-size:1.08rem;
+      font-weight:900;
+    }
+
+    .price-note{
+      color:#666;
+      font-size:.92rem;
+      font-weight:650;
+      line-height:1.5;
+    }
+
+    .full-btn{
+      width:100%;
+    }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:18px;
+    }
+
+    .review-card{
+      overflow:hidden;
+      border-radius:28px;
+      background:#fff;
+      border:1px solid rgba(0,0,0,.06);
+      box-shadow:var(--shadow);
+    }
+
+    .review-media{
+      background:#f3f3f3;
+      padding:10px;
+      display:grid;
+      place-items:center;
+      min-height:420px;
+      overflow:hidden;
+    }
+
+    .review-media img{
+      max-width:100%;
+      max-height:100%;
+      width:auto;
+      height:auto;
+      object-fit:contain;
+      object-position:center;
+      border-radius:18px;
+    }
+
+    .review-body{
+      padding:18px;
+      display:grid;
+      gap:10px;
+    }
+
+    .stars{
+      color:#1fc43a;
+      letter-spacing:.08em;
+      font-size:1.05rem;
+      line-height:1;
+    }
+
+    .review-name{
+      margin:0;
+      font-size:1.14rem;
+      font-weight:950;
+      letter-spacing:-.02em;
+    }
+
+    .review-text{
+      margin:0;
+      color:#4f4f4f;
+      line-height:1.65;
+      font-weight:650;
+    }
+
+    .benefit-banner{
+      position:relative;
+      overflow:hidden;
+      min-height:620px;
+      border-radius:34px;
+      background:
+        linear-gradient(180deg, rgba(10,18,14,.74), rgba(6,11,9,.82)),
+        url("images/progressiva1.png") center/cover no-repeat;
+      color:#fff;
+      box-shadow:0 28px 70px rgba(0,0,0,.18);
+    }
+
+    .benefit-banner::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(8,13,10,.76), rgba(8,13,10,.86));
+      z-index:0;
+    }
+
+    .benefit-inner{
+      position:relative;
+      z-index:1;
+      min-height:620px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      align-items:center;
+      padding:24px;
+    }
+
+    .benefit-copy{
+      max-width:620px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.08);
+      color:#f1f4f2;
+      font-weight:850;
+      font-size:.96rem;
+    }
+
+    .badge .dot{
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 0 5px rgba(68,239,75,.11);
+      flex:0 0 12px;
+    }
+
+    .benefit-copy h2{
+      margin:18px 0 12px;
+      font-size:clamp(1.7rem, 4vw, 3.2rem);
+      line-height:.95;
+      letter-spacing:-.06em;
+      font-weight:950;
+      text-transform:uppercase;
+    }
+
+    .benefit-copy h2 .accent{
+      color:var(--green);
+    }
+
+    .benefit-copy p{
+      margin:0;
+      color:#d0d7d2;
+      line-height:1.72;
+      font-size:1.03rem;
+      font-weight:650;
+      max-width:58ch;
+    }
+
+    .benefit-ctas{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:22px;
+    }
+
+    .benefit-floating{
+      justify-self:end;
+      width:min(360px, 100%);
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.11);
+      border-radius:28px;
+      padding:18px;
+      backdrop-filter:blur(12px);
+      box-shadow:0 22px 60px rgba(0,0,0,.22);
+    }
+
+    .benefit-floating img{
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      filter:drop-shadow(0 18px 32px rgba(0,0,0,.35));
+    }
+
+    .benefits-grid{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:16px;
+    }
+
+    .benefit-card{
+      padding:20px;
+      border-radius:26px;
+      background:#fff;
+      border:1px solid rgba(0,0,0,.06);
+      box-shadow:var(--shadow);
+    }
+
+    .benefit-icon{
+      width:52px;
+      height:52px;
+      border-radius:18px;
+      background:linear-gradient(135deg, rgba(68,239,75,.22), rgba(68,239,75,.08));
+      color:#0b6e1d;
+      display:grid;
+      place-items:center;
+      font-size:1.35rem;
+      margin-bottom:14px;
+    }
+
+    .benefit-card h3{
+      margin:0 0 10px;
+      font-size:1.08rem;
+      font-weight:900;
+      line-height:1.05;
+      text-transform:uppercase;
+      letter-spacing:-.02em;
+    }
+
+    .benefit-card p{
+      margin:0;
+      color:#555;
+      line-height:1.65;
+      font-weight:650;
+      font-size:.96rem;
+    }
+
+    .guarantee{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:20px;
+      align-items:stretch;
+    }
+
+    .guarantee-badge{
+      min-height:100%;
+      display:grid;
+      place-items:center;
+      padding:22px;
+      border-radius:32px;
+      background:
+        radial-gradient(circle at top left, rgba(68,239,75,.18), transparent 34%),
+        linear-gradient(180deg, #0d1511, #08100d);
+      color:#fff;
+      box-shadow:0 28px 70px rgba(0,0,0,.18);
+    }
+
+    .seal{
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      border:14px solid rgba(68,239,75,.22);
+      display:grid;
+      place-items:center;
+      text-align:center;
+      background:rgba(255,255,255,.04);
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.06), 0 18px 45px rgba(0,0,0,.24);
+      padding:24px;
+    }
+
+    .seal strong{
+      display:block;
+      font-size:1.6rem;
+      line-height:.95;
+      font-weight:950;
+      letter-spacing:-.05em;
+      text-transform:uppercase;
+    }
+
+    .seal span{
+      display:block;
+      margin-top:8px;
+      color:#cfd7d2;
+      font-weight:700;
+    }
+
+    .guarantee-copy{
+      padding:22px;
+    }
+
+    .guarantee-copy h2{
+      margin:0 0 12px;
+      font-size:clamp(1.7rem, 3vw, 3rem);
+      line-height:.96;
+      letter-spacing:-.06em;
+      font-weight:950;
+      text-transform:uppercase;
+    }
+
+    .guarantee-copy h2 .accent{
+      color:#1fc43a;
+    }
+
+    .guarantee-copy p{
+      margin:0;
+      color:#444;
+      line-height:1.72;
+      font-size:1rem;
+      font-weight:650;
+    }
+
+    .faq{
+      display:grid;
+      gap:12px;
+    }
+
+    details.faq-item{
+      overflow:hidden;
+      padding:0 18px;
+      border-radius:20px;
+      background:#fff;
+      border:1px solid rgba(0,0,0,.07);
+      box-shadow:0 16px 36px rgba(0,0,0,.06);
+    }
+
+    details.faq-item summary{
+      list-style:none;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:18px 0;
+      font-size:1rem;
+      font-weight:900;
+    }
+
+    details.faq-item summary::-webkit-details-marker{
+      display:none;
+    }
+
+    .faq-answer{
+      padding:0 0 18px;
+      color:#555;
+      line-height:1.72;
+      font-weight:650;
+    }
+
+    .cta-strip{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:18px;
+      align-items:center;
+      padding:20px;
+      border-radius:32px;
+      background:
+        radial-gradient(circle at top right, rgba(68,239,75,.18), transparent 38%),
+        linear-gradient(180deg, #0f1713, #09100d);
+      color:#fff;
+      box-shadow:0 28px 70px rgba(0,0,0,.18);
+    }
+
+    .cta-strip h3{
+      margin:0 0 8px;
+      font-size:clamp(1.4rem, 3vw, 2.4rem);
+      line-height:.98;
+      letter-spacing:-.05em;
+      font-weight:950;
+      text-transform:uppercase;
+    }
+
+    .cta-strip p{
+      margin:0;
+      color:#d0d6d2;
+      line-height:1.66;
+      font-weight:650;
+    }
+
+    footer{
+      padding:26px 0 96px;
+      color:#666;
+      font-weight:650;
+    }
+
+    .footer-box{
+      padding:20px;
+      border-radius:24px;
+      background:rgba(255,255,255,.72);
+      border:1px solid rgba(0,0,0,.05);
+    }
+
+    .floating-whatsapp{
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      z-index:70;
+      width:68px;
+      height:68px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, #34ef63, #13a43b);
+      border:3px solid rgba(255,255,255,.92);
+      box-shadow:0 20px 38px rgba(29,193,54,.34);
+      overflow:hidden;
+      animation:whatsPulse 2s infinite;
+    }
+
+    .floating-whatsapp img{
+      width:122%;
+      height:122%;
+      object-fit:cover;
+      object-position:center;
+      border-radius:50%;
+      transform:scale(1.02);
+    }
+
+    @keyframes whatsPulse{
+      0%{box-shadow:0 20px 38px rgba(29,193,54,.34)}
+      50%{box-shadow:0 20px 48px rgba(29,193,54,.48)}
+      100%{box-shadow:0 20px 38px rgba(29,193,54,.34)}
+    }
+
+    .sticky-buy{
+      position:fixed;
+      left:50%;
+      bottom:14px;
+      transform:translateX(-50%);
+      z-index:69;
+      width:min(760px, calc(100vw - 98px));
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.88);
+      border:1px solid rgba(0,0,0,.06);
+      backdrop-filter:blur(16px);
+      box-shadow:0 18px 42px rgba(0,0,0,.12);
+    }
+
+    .sticky-buy span{
+      min-width:0;
+      font-size:.94rem;
+      font-weight:900;
+      color:#111;
+      letter-spacing:-.02em;
+      padding-left:8px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .sticky-buy .btn{
+      min-height:46px;
+      padding:10px 18px;
+      flex:0 0 auto;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(28px);
+      transition:opacity .7s ease, transform .7s ease;
+      will-change:transform, opacity;
+    }
+
+    .reveal.visible{
+      opacity:1;
+      transform:none;
+    }
+
+    @media (max-width: 1080px){
+      .stat-grid,
+      .benefit-inner,
+      .guarantee,
+      .cta-strip{
+        grid-template-columns:1fr;
+      }
+
+      .benefit-floating{
+        justify-self:start;
+      }
+    }
+
+    @media (max-width: 860px){
+      .pricing-grid,
+      .gallery-grid,
+      .benefits-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .section-head{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .stat-card{
+        grid-template-columns:150px 1fr;
+      }
+    }
+
+    @media (max-width: 640px){
+      :root{
+        --container:min(100vw - 16px, 100vw - 16px);
+        --radius:24px;
+      }
+
+      .topbar-inner{
+        min-height:70px;
+      }
+
+      .brand{
+        font-size:1.02rem;
+      }
+
+      .top-cta{
+        min-height:48px;
+        padding:10px 18px;
+        font-size:.94rem;
+      }
+
+      .hero-wrap{
+        padding:12px;
+        border-radius:28px;
+      }
+
+      .hero h1{
+        font-size:clamp(1.82rem, 8.6vw, 3rem);
+        line-height:.96;
+      }
+
+      .hero-sub{
+        font-size:1rem;
+      }
+
+      .hero-points{
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .mini-chip{
+        justify-content:flex-start;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .video-badge{
+        width:100%;
+        justify-content:center;
+        font-size:.95rem;
+        padding:13px 14px;
+      }
+
+      .stat-highlight{
+        padding:14px;
+        border-radius:26px;
+      }
+
+      .stat-card{
+        grid-template-columns:1fr;
+        gap:12px;
+      }
+
+      .stat-image{
+        min-height:180px;
+      }
+
+      .pricing-grid,
+      .gallery-grid,
+      .benefits-grid{
+        grid-template-columns:1fr;
+      }
+
+      .pricing-card{
+        border-radius:24px;
+      }
+
+      .pricing-image{
+        min-height:190px;
+      }
+
+      .review-media{
+        min-height:360px;
+      }
+
+      .benefit-banner{
+        min-height:auto;
+      }
+
+      .benefit-inner{
+        min-height:auto;
+        padding:16px;
+      }
+
+      .benefit-floating{
+        width:100%;
+      }
+
+      .guarantee-badge,
+      .guarantee-copy{
+        padding:18px;
+      }
+
+      .seal{
+        width:180px;
+        height:180px;
+      }
+
+      .cta-strip{
+        grid-template-columns:1fr;
+      }
+
+      .floating-whatsapp{
+        width:62px;
+        height:62px;
+        right:12px;
+        bottom:12px;
+      }
+
+      .sticky-buy{
+        width:calc(100vw - 92px);
+        padding:8px;
+        gap:8px;
+      }
+
+      .sticky-buy span{
+        font-size:.85rem;
+      }
+
+      .sticky-buy .btn{
+        min-height:42px;
+        padding:10px 14px;
+        font-size:.84rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span>Progressiva em Gel</span>
+      </div>
+      <a href="#ofertas" class="top-cta">Pague na entrega</a>
+    </div>
+  </div>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-wrap reveal">
+          <div class="hero-inner">
+
+            <div class="hero-video-card">
+              <video autoplay muted loop playsinline preload="metadata">
+                <source src="images/video.mp4" type="video/mp4">
+              </video>
+
+              <div class="video-overlay">
+                <a href="#ofertas" class="video-badge">
+                  <span class="dot"></span>
+                  <span>PAGUE NA ENTREGA • ENTREGA RÁPIDA</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="hero-copy">
+              <h1>
+                MAIS DE <span class="accent">50 MIL</span><br>
+                CABELOS<br>
+                TRANSFORMADOS
+              </h1>
+
+              <p class="hero-sub">
+                Alise seu cabelo agora com progressiva em gel e sinta a diferença já nas primeiras aplicações, com brilho intenso, menos frizz e resultado com aparência de salão no conforto de sua casa.
+              </p>
+
+              <div class="hero-points">
+                <div class="mini-chip"><span class="mini-dot"></span><span>Sem formol</span></div>
+                <div class="mini-chip"><span class="mini-dot"></span><span>Brilho e maciez</span></div>
+              </div>
+
+              <div class="hero-actions">
+                <a href="#ofertas" class="btn btn-primary">QUERO MEU LISO AGORA</a>
+                <a href="#ofertas" class="btn btn-secondary">PAGUE SOMENTE NA ENTREGA</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="stat-highlight reveal">
+          <div class="stat-grid">
+            <div class="stat-block">
+              <strong>60.845</strong>
+              <span>Vendidos</span>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-image">
+                <img src="images/progressiva1.png" alt="Progressiva em Gel" loading="lazy" />
+              </div>
+
+              <div class="stat-copy">
+                <p>
+                  Fórmula pensada para alinhar os fios, reduzir o frizz e entregar brilho intenso com praticidade no dia a dia.
+                </p>
+
+                <div class="stat-price">
+                  <span class="old">De R$ 294,00</span>
+                  <span class="new">R$ 197,00</span>
+                  <span class="small">Pague somente na entrega</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ofertas" class="section-lg">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Progressiva em Gel</h2>
+          <p>Escolha a quantidade ideal e finalize seu pedido com pagamento na entrega.</p>
+        </div>
+
+        <div class="pricing-grid">
+
+          <article class="pricing-card reveal">
+            <div class="pricing-image">
+              <img src="images/progressiva1.png" alt="1 frasco Progressiva em Gel 500ml" loading="lazy" />
+            </div>
+
+            <div class="pricing-copy">
+              <h3>1 frasco</h3>
+              <div class="pricing-ml">500 ml cada</div>
+              <p>Ideal para quem quer começar agora e sentir o resultado nas primeiras aplicações.</p>
+            </div>
+
+            <div class="pricing-list">
+              <div class="pricing-item"><span class="check">✓</span><span>Alisamento de até 3 meses</span></div>
+              <div class="pricing-item"><span class="check">✓</span><span>1 frasco rende até 10 aplicações</span></div>
+              <div class="pricing-item"><span class="check">✓</span><span>Cabelos lisos, hidratados e sem frizz</span></div>
+            </div>
+
+            <div class="price-block">
+              <div class="price-old">De R$ 294,00</div>
+              <div class="price-main">R$ 197,00</div>
+              <div class="price-cash">Pagamento na entrega</div>
+              <div class="price-note">Clique para preencher seu cadastro</div>
+            </div>
+
+            <a href="https://entrega.logzz.com.br/pay/mempqd5k7/progcreme197" class="btn btn-primary full-btn">PAGUE NA ENTREGA</a>
+          </article>
+
+          <article class="pricing-card featured reveal">
+            <div class="pricing-ribbon">Mais pedido</div>
+
+            <div class="pricing-image">
+              <img src="images/progressiva2.png" alt="2 frascos Progressiva em Gel 500ml" loading="lazy" />
+            </div>
+
+            <div class="pricing-copy">
+              <h3>2 frascos</h3>
+              <div class="pricing-ml">500 ml cada</div>
+              <p>Melhor escolha para quem quer mais rendimento e melhor custo-benefício por aplicação.</p>
+            </div>
+
+            <div class="pricing-list">
+              <div class="pricing-item"><span class="check">✓</span><span>Alisamento de até 3 meses</span></div>
+              <div class="pricing-item"><span class="check">✓</span><span>2 frascos rendem até 20 aplicações</span></div>
+              <div class="pricing-item"><span class="check">✓</span><span>Liso perfeito por mais tempo</span></div>
+            </div>
+
+            <div class="price-block">
+              <div class="price-old">De R$ 394,00</div>
+              <div class="price-main">R$ 220,00</div>
+              <div class="price-cash">Pagamento na entrega</div>
+              <div class="price-note">Clique para preencher seu cadastro</div>
+            </div>
+
+            <a href="https://entrega.logzz.com.br/pay/mempqd5k7/prog-220" class="btn btn-primary full-btn">PAGUE NA ENTREGA</a>
+          </article>
+
+          <article class="pricing-card reveal">
+            <div class="pricing-image">
+              <img src="images/progressiva3.png" alt="3 frascos Progressiva em Gel 500ml" loading="lazy" />
+            </div>
+
+            <div class="pricing-copy">
+              <h3>3 frascos</h3>
+              <div class="pricing-ml">500 ml cada</div>
+              <p>Oferta para quem quer maior rendimento, estoque em casa e o menor valor por unidade.</p>
+            </div>
+
+            <div class="pricing-list">
+              <div class="pricing-item"><span class="check">✓</span><span>Alisamento de até 3 meses</span></div>
+              <div class="pricing-item"><span class="check">✓</span><span>3 frascos rendem até 30 aplicações</span></div>
+              <div class="pricing-item"><span class="check">✓</span><span>Brilho espelhado e praticidade</span></div>
+            </div>
+
+            <div class="price-block">
+              <div class="price-old">De R$ 588,00</div>
+              <div class="price-main">R$ 291,00</div>
+              <div class="price-cash">Pagamento na entrega</div>
+              <div class="price-note">Clique para preencher seu cadastro</div>
+            </div>
+
+            <a href="https://entrega.logzz.com.br/pay/mempqd5k7/progcreme3x97" class="btn btn-primary full-btn">PAGUE NA ENTREGA</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="section-lg">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Resultados reais</h2>
+          <p>Veja alguns resultados e avaliações de clientes.</p>
+        </div>
+
+        <div class="gallery-grid">
+
+          <article class="review-card reveal">
+            <div class="review-media">
+              <img src="images/mariaalmeida.png" alt="Resultado real Maria Almeida" loading="lazy" />
+            </div>
+            <div class="review-body">
+              <div class="stars">★★★★★</div>
+              <h3 class="review-name">Maria Almeida</h3>
+              <p class="review-text">O meu cabelo ficou muito bom, eu amei. Chegou rapidinho e super recomendo.</p>
+            </div>
+          </article>
+
+          <article class="review-card reveal">
+            <div class="review-media">
+              <img src="images/jessicafernandes.png" alt="Resultado real Jéssica Fernandes" loading="lazy" />
+            </div>
+            <div class="review-body">
+              <div class="stars">★★★★★</div>
+              <h3 class="review-name">Jéssica Fernandes</h3>
+              <p class="review-text">Simplesmente perfeita. Meu cabelo ficou super liso, brilhoso e sedoso. Chegou antes do esperado.</p>
+            </div>
+          </article>
+
+          <article class="review-card reveal">
+            <div class="review-media">
+              <img src="images/patriciasouza.png" alt="Resultado real Patrícia Souza" loading="lazy" />
+            </div>
+            <div class="review-body">
+              <div class="stars">★★★★★</div>
+              <h3 class="review-name">Patrícia Souza</h3>
+              <p class="review-text">Gostei demais do resultado. Fácil de aplicar e o cabelo fica alinhado logo nas primeiras aplicações.</p>
+            </div>
+          </article>
+
+          <article class="review-card reveal">
+            <div class="review-media">
+              <img src="images/amandarocha.png" alt="Resultado real Amanda Rocha" loading="lazy" />
+            </div>
+            <div class="review-body">
+              <div class="stars">★★★★★</div>
+              <h3 class="review-name">Amanda Rocha</h3>
+              <p class="review-text">Achei prático de usar e o cabelo ficou com muito brilho. Valeu super a pena.</p>
+            </div>
+          </article>
+
+          <article class="review-card reveal">
+            <div class="review-media">
+              <img src="images/camilanunes.png" alt="Resultado real Camila Nunes" loading="lazy" />
+            </div>
+            <div class="review-body">
+              <div class="stars">★★★★★</div>
+              <h3 class="review-name">Camila Nunes</h3>
+              <p class="review-text">Chegou rápido, o atendimento foi ótimo e eu gostei bastante do resultado no meu cabelo.</p>
+            </div>
+          </article>
+
+          <article class="review-card reveal">
+            <div class="review-media">
+              <img src="images/fernandalima.png" alt="Resultado real Fernanda Lima" loading="lazy" />
+            </div>
+            <div class="review-body">
+              <div class="stars">★★★★★</div>
+              <h3 class="review-name">Fernanda Lima</h3>
+              <p class="review-text">Meu cabelo ficou bem alinhado e com cara de cabelo cuidado. Recomendo demais.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="beneficios" class="section-lg">
+      <div class="container">
+        <div class="benefit-banner reveal">
+          <div class="benefit-inner">
+            <div class="benefit-copy">
+              <span class="badge"><span class="dot"></span>Vitaminas e benefícios</span>
+              <h2>ALISAMENTO INTENSO <span class="accent">COM COLÁGENO, ARGAN E QUERATINA</span></h2>
+              <p>
+                Com uma fórmula poderosa enriquecida com colágeno, argan, trigo, queratina e um blend de aminoácidos, a progressiva em gel ajuda a alinhar os fios enquanto nutre profundamente, promovendo brilho, maciez e aparência mais sedosa.
+              </p>
+              <div class="benefit-ctas">
+                <a href="#ofertas" class="btn btn-primary">PAGUE NA ENTREGA</a>
+                <a href="#reviews" class="btn btn-secondary">VER RESULTADOS</a>
+              </div>
+            </div>
+
+            <div class="benefit-floating">
+              <img src="images/progressiva1.png" alt="Frasco da Progressiva em Gel" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-lg">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Feita para todos os tipos de cabelo</h2>
+          <p>Estrutura mais limpa e profissional para valorizar a oferta e facilitar a decisão do cliente.</p>
+        </div>
+
+        <div class="benefits-grid">
+          <article class="benefit-card reveal">
+            <div class="benefit-icon">✦</div>
+            <h3>Visual alinhado</h3>
+            <p>Ajuda a deixar os fios mais alinhados, com aparência de cabelo bem cuidado e resultado mais uniforme.</p>
+          </article>
+
+          <article class="benefit-card reveal">
+            <div class="benefit-icon">❋</div>
+            <h3>Brilho intenso</h3>
+            <p>Promove mais brilho e maciez, reduzindo o aspecto opaco e deixando o cabelo com visual mais bonito.</p>
+          </article>
+
+          <article class="benefit-card reveal">
+            <div class="benefit-icon">✓</div>
+            <h3>Praticidade em casa</h3>
+            <p>Uma opção para quem busca praticidade no dia a dia e quer cuidar do cabelo sem depender do salão.</p>
+          </article>
+
+          <article class="benefit-card reveal">
+            <div class="benefit-icon">∞</div>
+            <h3>Mais rendimento</h3>
+            <p>Com bom rendimento por aplicação, cada frasco pode atender diferentes rotinas e necessidades de uso.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-lg">
+      <div class="container">
+        <div class="guarantee">
+          <div class="guarantee-badge reveal">
+            <div class="seal">
+              <div>
+                <strong>7 dias</strong>
+                <span>Garantia de satisfação</span>
+              </div>
+            </div>
+          </div>
+
+          <article class="card guarantee-copy reveal">
+            <h2>Seu cabelo perfeito ou <span class="accent">seu dinheiro de volta</span></h2>
+            <p>
+              Não gostou do resultado? Sem problemas. Com nossa garantia de satisfação, você tem até 7 dias para solicitar a devolução conforme as condições da oferta. A proposta aqui é comprar com mais segurança e confiança.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-lg">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Dúvidas frequentes</h2>
+          <p>Essa parte ajuda muito a reduzir objeção e melhorar conversão no final da página.</p>
+        </div>
+
+        <div class="faq">
+          <details class="faq-item reveal">
+            <summary>A progressiva é para quais tipos de cabelo?<span>+</span></summary>
+            <div class="faq-answer">
+              A proposta da página é comunicar uso amplo para diferentes tipos de cabelo. Depois a gente ajusta esse texto conforme a descrição exata do fornecedor.
+            </div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>Em quanto tempo chega?<span>+</span></summary>
+            <div class="faq-answer">
+              O destaque principal da oferta é entrega rápida, normalmente entre 24 e 48 horas, conforme a região e disponibilidade.
+            </div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>Como funciona o pagamento na entrega?<span>+</span></summary>
+            <div class="faq-answer">
+              O cliente clica em “Pague na entrega”, preenche os dados de cadastro e finaliza o pedido para receber no endereço informado.
+            </div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>Posso pedir pelo WhatsApp?<span>+</span></summary>
+            <div class="faq-answer">
+              Sim. O botão flutuante do WhatsApp fica ativo para atendimento rápido, dúvidas e suporte comercial.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-lg">
+      <div class="container">
+        <div class="cta-strip reveal">
+          <div>
+            <h3>Pronta para pedir o seu?</h3>
+            <p>Finalize agora seu cadastro com pagamento na entrega ou fale no WhatsApp para tirar dúvidas e acelerar o pedido.</p>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <a href="https://entrega.logzz.com.br/pay/mempqd5k7/progcreme197" class="btn btn-primary">PAGUE NA ENTREGA</a>
+            <a href="https://wa.me/5562999999999" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">CHAMAR NO WHATSAPP</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-box">
+        Progressiva em Gel • Pagamento na entrega • Atendimento rápido • Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <a class="floating-whatsapp" href="https://wa.me/5562999999999" target="_blank" rel="noopener noreferrer" aria-label="Chamar no WhatsApp">
+    <img src="images/logowpp.avif" alt="WhatsApp" />
+  </a>
+
+  <div class="sticky-buy">
+    <span>Progressiva em Gel • Oferta disponível</span>
+    <a href="#ofertas" class="btn btn-primary">PAGUE NA ENTREGA</a>
+  </div>
+
+  <script>
+    const revealItems = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+
+    document.querySelectorAll('details.faq-item').forEach((item) => {
+      item.addEventListener('toggle', () => {
+        const icon = item.querySelector('summary span');
+        if (icon) icon.textContent = item.open ? '−' : '+';
+      });
+    });
+  </script>
+</body>
+</html>x
